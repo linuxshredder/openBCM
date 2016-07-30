@@ -27,7 +27,7 @@
 #ifndef _BAYCOM_H
   #define   _BAYCOM_H
 
-  #define YEAR "2013"
+  #define YEAR "2016"
   #define Year 1900     // 1900 + 100 = 2000
 
   #ifdef __DPMI32__
