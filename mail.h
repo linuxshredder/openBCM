@@ -69,6 +69,7 @@
 //20031010 DH8YMB Userdatenbank neues Format in users4.bcm
 //20031226 DH6BB  FTP-Server fuer den Filesurf
 //20121226 DG4MFN added comment to AUTHOR_ID about modification for Linux GCC 4.x.x
+//20160730 DG4MFN added comment to AUTHOR_ID about modification for Linux GCC 6.x.x
 
 /*---------------------------------------------------------------------------*/
 
@@ -79,7 +80,7 @@
 #ifdef __LINUX__
     #define AUTHOR_ID   "(c) GNU GPL 1992-"YEAR" F. Radlherr, DL8MBT et al.\n" \
                         "OpenBCM is maintained by Markus Baumann, DH8YMB\n" \
-                        "Sourcecode modified for GCC 4.x compilers by DG4MFN\n"
+                        "Sourcecode modified for GCC 6.x compilers by DG4MFN\n"
 #else
     #define AUTHOR_ID   "(c) GNU GPL 1992-"YEAR" F. Radlherr, DL8MBT et al.\n" \
                         "OpenBCM is maintained by Markus Baumann, DH8YMB\n"

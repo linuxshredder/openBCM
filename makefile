@@ -17,6 +17,8 @@ GPP_VERSION33 := \
   $(shell $(CROSS_COMPILE)g++-3.3 --version | grep g++ | sed 's/.*g++ (.*) //g' | sed 's/\..*//' | grep 3)
 GPP_VERSION4 := \
   $(shell $(CROSS_COMPILE)g++ --version | grep g++ | sed 's/.*g++ (.*) //g' | sed 's/\..*//' | grep 4)
+GPP_VERSION6 := \
+  $(shell $(CROSS_COMPILE)g++ --version | grep g++ | sed 's/.*g++ (.*) //g' | sed 's/\..*//' | grep 6)
 
 ifeq "$(GPP_VERSION33)" "3"
   CC = g++-3.3
@@ -62,14 +64,15 @@ OPT_WARN = -Wcomment -Wno-conversion -Wformat -Wno-unused \
 	   -Wreturn-type -Wno-write-strings -Wuninitialized -Wswitch -Wshadow
 
 ifeq "$(GPP_VERSION4)" "4"
-  ifeq "$(GPP_VERSION33)" "3"
     override OPT = -O2 -fno-delete-null-pointer-checks -funsigned-char -fwritable-strings $(ARCHSPEC)
   else
     override OPT = -fno-delete-null-pointer-checks -funsigned-char $(ARCHSPEC)
     override OPT_WARN = -Wcomment -Wno-conversion -Wformat -Wno-unused -Wreturn-type -Wno-write-strings 
-  endif
 endif
-
+ifeq "$(GPP_VERSION6)" "6"
+      override OPT = -std=gnu++98 -fno-delete-null-pointer-checks -funsigned-char $(ARCHSPEC)
+    override OPT_WARN = -Wcomment -Wno-conversion -Wformat -Wno-unused -Wreturn-type -Wno-write-strings -Wno-shadow
+endif
 	   
 # enable following line to see all warnings
 #OPT_WARN += -Wall  
